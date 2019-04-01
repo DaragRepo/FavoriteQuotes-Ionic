@@ -1,0 +1,33 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+  
+    <ion-title text-center>Favorite Quotes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <!-- slide then reveal those options ion-items-sliding slide and reveal optoin ion-item-options  -->
+    <ion-item-sliding *ngFor="let qoute of favorites">
+      <!-- <ion-item (click)="onViewQuote(qoute)" [color]="getBackground()"> -->
+          <ion-item (click)="onViewQuote(qoute)" color="quoteBackground" [ngClass]="{alt: isAltBackground()}">
+        <h2>{{qoute.person}}</h2>
+        <p>{{qoute.text}}</p>
+      </ion-item>
+      <ion-item-options>
+        <button  (click)="onDeleteQuote(qoute)" ion-button color="danger" >
+          <ion-icon name="trash"></ion-icon>
+          Delete
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+</ion-content>

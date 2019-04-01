@@ -1,19 +1,24 @@
+import { IonicPage } from 'ionic-angular';
+import { LibraryPage } from './../library/library';
+import { FavoritesPage } from './../favorites/favorites';
 import { Component } from '@angular/core';
 
-import { AboutPage } from '../about/about';
-import { ContactPage } from '../contact/contact';
-import { HomePage } from '../home/home';
 
+
+
+@IonicPage()
 @Component({
-  templateUrl: 'tabs.html'
+  selector: 'page-tabs',
+  template: `
+  <ion-tabs selectedIndex="0">
+  
+  <ion-tab [root]="favoritesPage" tabTitle="Favorites" tabIcon="star"></ion-tab>
+  <ion-tab [root]="libraryPage" tabTitle="Library" tabIcon="ios-book"></ion-tab>
+  </ion-tabs>
+  
+  `
 })
 export class TabsPage {
-
-  tab1Root = HomePage;
-  tab2Root = AboutPage;
-  tab3Root = ContactPage;
-
-  constructor() {
-
-  }
+  favoritesPage = FavoritesPage; 
+  libraryPage   = LibraryPage;
 }
